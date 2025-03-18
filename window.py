@@ -30,3 +30,4 @@ class Window():
 
     def draw_line(self, line, draw_color="black"):
         line.draw(self.__canvas, draw_color)
+

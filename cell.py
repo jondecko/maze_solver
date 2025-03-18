@@ -35,3 +35,15 @@ class Cell():
         if self.has_left_wall:
             l4 = Line(p4, p1)
             self._win.draw_line(l4)
+
+
+    def center_point(self):
+        return Point((self._x1 + self._x2)/2, (self._y1 + self._y2)/2)
+
+
+    def draw_move(self, to_cell, undo=False):
+        line = Line(self.center_point(), to_cell.center_point())
+        if undo:
+            self._win.draw_line(line, "red")
+        else:
+            self._win.draw_line(line, "gray")
