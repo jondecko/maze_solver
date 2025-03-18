@@ -44,14 +44,21 @@ class Tests(unittest.TestCase):
         self.assertEqual(middle_cell._x2, cell_size * 2)
         self.assertEqual(middle_cell._y2, cell_size * 2)
 
-    #def test_cell_neighbors(self):
-    #    m = Maze(0, 0, 10, 10, 10, 10)
-    #    # Test that middle cells have all neighbors
-    #    cell = m._cells[5][5]
-    #    self.assertIsNotNone(cell.has_top_cell())
-    #    self.assertIsNotNone(cell.has_right_cell())
-    #    self.assertIsNotNone(cell.has_bottom_cell())
-    #    self.assertIsNotNone(cell.has_left_cell())
+    def test_maze_create_busting_out_ent_and_exit(self):
+        num_cols = 5 
+        num_rows = 10
+        m1 = Maze(0, 0, num_rows, num_cols, 10, 10)
+        c1 = m1._cells[0][0]
+        self.assertEqual(c1.has_top_wall, False)
+        self.assertEqual(c1.has_right_wall, True)
+        self.assertEqual(c1.has_bottom_wall, True)
+        self.assertEqual(c1.has_left_wall, True)
+
+        c2 = m1._cells[4][9]
+        self.assertEqual(c2.has_top_wall, True)
+        self.assertEqual(c2.has_right_wall, True)
+        self.assertEqual(c2.has_bottom_wall, False)
+        self.assertEqual(c2.has_left_wall, True)
 
 
 if __name__ == "__main__":

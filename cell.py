@@ -17,6 +17,11 @@ class Cell():
         self._y2 = y2
         self._win = win 
 
+    def __repr__(self):
+        value = f"{self._x1} {self._x2} {self._y1} {self._y2}\n"
+        value += f"{self.has_top_wall} {self.has_right_wall} {self.has_bottom_wall} {self.has_left_wall}"
+        return value
+
 
     def draw(self, fill_color="black"):
         if self._win is None:
