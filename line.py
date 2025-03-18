@@ -6,7 +6,6 @@ class Line():
 
 
     def draw(self, canvas, fill_color="black"):
-        print(f"Line#draw {self.p1.x} {self.p1.y} {self.p2.x} {self.p2.y}")
         canvas.create_line(
             self.p1.x, self.p1.y,
             self.p2.x, self.p2.y,

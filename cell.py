@@ -18,7 +18,6 @@ class Cell():
 
 
     def draw(self, fill_color="black"):
-        print("drawing")
         p1 = Point(self._x1, self._y1) # Top left
         p2 = Point(self._x2, self._y1) # Top right
         p3 = Point(self._x2, self._y2) # Bottom left

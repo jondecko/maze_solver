@@ -1,3 +1,4 @@
+from maze import Maze
 from window import Window
 from cell import Cell
 #from line import Line
@@ -5,19 +6,17 @@ from cell import Cell
 
 def main():
     print("Main starting")
-    win = Window(800, 600)
 
-    cells = [
-        Cell(win, 100, 150, 100, 150, True, False, True, True),
-        Cell(win, 150, 200, 100, 150, True, False, True, False),
-        Cell(win, 200, 250, 100, 150, True, False, True, False),
-        Cell(win, 250, 300, 100, 150, True, True, True, False),
-    ]
-    for cell in cells:
-        cell.draw()
+    num_rows = 12
+    num_cols = 16
+    margin = 50
+    screen_x = 800
+    screen_y = 600
+    cell_size_x = (screen_x - 2 * margin) / num_cols
+    cell_size_y = (screen_y - 2 * margin) / num_rows
+    win = Window(screen_x, screen_y)
 
-    cells[0].draw_move(cells[1])
-    cells[1].draw_move(cells[2], True)
+    maze = Maze(margin, margin, num_rows, num_cols, cell_size_x, cell_size_y, win)
 
     win.wait_for_close()
 
