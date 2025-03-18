@@ -3,9 +3,10 @@ from point import Point
 
 class Cell():
 
-    def __init__(self, win, x1, x2, y1, y2,
+    def __init__(self, x1, x2, y1, y2,
                  has_top_wall=True, has_right_wall=True,
-                 has_bottom_wall=True, has_left_wall=True):
+                 has_bottom_wall=True, has_left_wall=True,
+                 win=None):
         self.has_left_wall = has_left_wall 
         self.has_right_wall = has_right_wall
         self.has_top_wall = has_top_wall
@@ -18,6 +19,9 @@ class Cell():
 
 
     def draw(self, fill_color="black"):
+        if self._win is None:
+            return
+
         p1 = Point(self._x1, self._y1) # Top left
         p2 = Point(self._x2, self._y1) # Top right
         p3 = Point(self._x2, self._y2) # Bottom left
