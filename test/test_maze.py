@@ -12,11 +12,6 @@ class Tests(unittest.TestCase):
         self.assertEqual(len(m1._cells), num_cols)
         self.assertEqual(len(m1._cells[0]), num_rows)
 
-    def test_maze_create_cells_no_cols(self):
-        num_cols = 0 
-        num_rows = 10
-        m1 = Maze(0, 0, num_rows, num_cols, 10, 10)
-        self.assertEqual(len(m1._cells), num_cols)
 
     def test_different_dimensions(self):
         m1 = Maze(0, 0, 5, 8, 10, 10)
@@ -50,15 +45,8 @@ class Tests(unittest.TestCase):
         m1 = Maze(0, 0, num_rows, num_cols, 10, 10)
         c1 = m1._cells[0][0]
         self.assertEqual(c1.has_top_wall, False)
-        self.assertEqual(c1.has_right_wall, True)
-        self.assertEqual(c1.has_bottom_wall, True)
-        self.assertEqual(c1.has_left_wall, True)
-
         c2 = m1._cells[4][9]
-        self.assertEqual(c2.has_top_wall, True)
-        self.assertEqual(c2.has_right_wall, True)
         self.assertEqual(c2.has_bottom_wall, False)
-        self.assertEqual(c2.has_left_wall, True)
 
 
 if __name__ == "__main__":

@@ -15,6 +15,7 @@ class Cell():
         self._x2 = x2
         self._y1 = y1
         self._y2 = y2
+        self.visited = False
         self._win = win 
 
     def __repr__(self):
